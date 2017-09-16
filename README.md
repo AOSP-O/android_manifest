@@ -2,25 +2,33 @@
 
 ### Sync ###
 
-```bash
+
 
 # Initialize local repository
+```bash
 repo init -u https://github.com/AOSP-O/android_manifest -b oreo
+```
 
 # Sync
-repo sync -c -jx --force-sync --no-clone-bundle --no-tags
+```bash
+repo sync --force-sync --force-broken --no-clone-bundle --no-tags -j2
 ```
 
 ### Preparing to Build ###
 
-```bash
+
 
 # Set up environment
+```bash
 $ . build/envsetup.sh
+```
 
 # Choose a target
+```bash
 $ lunch aosp_kenzo-userdebug
+```
 
 # Build the code
+```bash
 $ mka bacon -jX
 ```
