@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Github remote -->
+  <remote name="github"
+          fetch="https://github.com/" />
+
+  <!-- Gitlab remote -->
+  <remote name="gitlab"
+          fetch="https://gitlab.com/" />
+
+  <!-- AOSP-O-Kenzo remote -->
+  <remote name="aosp-o"
+          revision="oreo"
+          fetch="https://github.com/AOSP-O/" />
+
+  <!-- general -->
+  <project path="build/make" name="android_build" remote="aosp-o" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="android_build_soong" remote="aosp-o">
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <project path="build/kati" name="android_build_kati" remote="aosp-o" />
+  <project path="manifest" name="android_manifest" remote="aosp-o" />
+  <project path="bionic" name="android_bionic" remote="aosp-o" />
+  <project path="bootable/recovery" name="android_bootable_recovery" remote="aosp-o" />
+
+  <!-- external -->
+  <project path="external/fuse" name="android_external_fuse" remote="aosp-o" />
+  <project path="external/exfat" name="android_external_exfat" remote="aosp-o" />
+  <project path="external/ntfs-3g" name="android_external_ntfs-3g" remote="aosp-o" />
+  <project path="external/ant-wireless/antradio-library" name="android_external_ant-wireless_antradio-library" remote="aosp-o" />
+  <project path="external/libnfnetlink" name="android_external_libnfnetlink" remote="aosp-o" />
+  <project path="external/libnetfilter_conntrack" name="android_external_libnetfilter_conntrack" remote="aosp-o" />
+
+  <!-- system -->
+  <project path="system/vold" name="android_system_vold" remote="aosp-o" />
+  <project path="system/core" name="android_system_core" remote="aosp-o" />
+  <project path="system/sepolicy" name="android_system_sepolicy" remote="aosp-o" />
+
+  <!-- sepolicy -->
+  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="aosp-o" />
+
+  <!-- frameworks -->
+  <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="aosp-o" />
+  <project path="frameworks/native" name="android_frameworks_native" remote="aosp-o" />
+  <project path="frameworks/av" name="android_frameworks_av" remote="aosp-o" />
+  <project path="frameworks/base" name="android_frameworks_base" remote="aosp-o" />
+
+  <!-- hardware -->
+  <project path="hardware/qcom/audio" name="android_hardware_qcom_audio" remote="aosp-o" />
+  <project path="hardware/qcom/bt" name="android_hardware_qcom_bt" remote="aosp-o" />
+  <project path="hardware/qcom/camera" name="android_hardware_qcom_camera" remote="aosp-o" />
+  <project path="hardware/qcom/display" name="android_hardware_qcom_display" remote="aosp-o" />
+  <project path="hardware/qcom/media" name="android_hardware_qcom_media" remote="aosp-o" />
+  <project path="hardware/qcom/gps" name="android_hardware_qcom_gps" remote="aosp-o" />
+  <project path="hardware/interfaces" name="android_hardware_interfaces" remote="aosp-o" />
+
+  <!-- packages -->
+  <project path="packages/apps/Snap" name="android_packages_apps_Snap" remote="aosp-o" />
+  <project path="packages/apps/FMRadio" name="android_packages_apps_FMRadio" remote="aosp-o" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="aosp-o" />
+  <project path="packages/apps/PackageInstaller" name="android_packages_apps_PackageInstaller" remote="aosp-o" />
+  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="aosp-o" />
+  <project path="packages/providers/MediaProvider" name="android_packages_providers_MediaProvider" remote="aosp-o" />
+
+  <!-- prebuilts and toolchains -->
+
+  <!-- vendor -->
+  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="android_vendor_qcom_opensource_data-ipa-cfg-mgr" remote="aosp-o" />
+  <project path="vendor/qcom/opensource/dataservices" name="android_vendor_qcom_opensource_dataservices" remote="aosp-o" />
+  <project path="vendor/qcom/opensource/fm" name="android_vendor_qcom_opensource_fm" remote="aosp-o" />
+  <project path="vendor/codeaurora/telephony" name="android_vendor_codeaurora_telephony" remote="aosp-o" />
+  <project path="vendor/aosp" name="android_vendor_aosp" remote="aosp-o" />
+  <project path="vendor/gapps" name="jhenrique09/vendor_gapps" clone-depth="1" revision="oreo" remote="gitlab" />
+
+  <!-- kenzo -->
+  <project path="device/xiaomi/kenzo" name="android_device_xiaomi_kenzo" remote="aosp-o" />
+  <project path="vendor/xiaomi/kenzo" name="android_vendor_xiaomi_kenzo" remote="aosp-o" />
+  <project path="kernel/xiaomi/kenzo" name="android_kernel_xiaomi_kenzo" remote="aosp-o" />
+
+</manifest>
